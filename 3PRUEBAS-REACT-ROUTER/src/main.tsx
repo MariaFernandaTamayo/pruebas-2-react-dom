@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Home from './routes/Home.tsx';
 import Login from './routes/Login.tsx';
@@ -41,11 +41,11 @@ const router = createBrowserRouter([
   }
 ]);
 
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  
 );
