@@ -12,13 +12,19 @@ export default function Login() {
         // Verificar las credenciales del usuario administrador
         if (email === "admin@admin.com" && password === "admin") {
             auth.setIsAuthenticated(true); // Establecer autenticación
+            // Almacenar la información de autenticación en localStorage
+            localStorage.setItem("isAuthenticated", "true");
+            // Redirigir a la última ruta visitada o a una ruta predeterminada
+            const lastVisitedRoute = localStorage.getItem("lastVisitedRoute") || "/";
+            return <Navigate to={lastVisitedRoute} />;
         } else {
             setError("Credenciales incorrectas. Por favor, inténtalo de nuevo."); // Establecer mensaje de error
         }
     };
 
     if (auth.isAuthenticated) {
-        return <Navigate to="/" />; // Redirigir a la raíz después de iniciar sesión
+        // Redirigir si ya está autenticado
+        return <Navigate to="/" />;
     }
 
     return (
