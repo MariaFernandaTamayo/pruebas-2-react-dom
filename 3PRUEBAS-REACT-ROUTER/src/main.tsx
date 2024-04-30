@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Home from './routes/Home.tsx';
 import Login from './routes/Login.tsx';
 import Contact from './routes/Contact.tsx';
